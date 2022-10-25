@@ -796,6 +796,7 @@ The files `analysis_Tau3Mu_stage1.py`, `myAnalysis.h` and `myAnalysis.cc` with a
 
 
 In case you have skipped some of the steps above, you can still run this last part in stand-alone, by copying the files that are in `examples/FCCee/tutorials/vertexing/Exercises/`. 
+
 :::{admonition} To-do if you have skipped the steps above:
 :class: toggle
 
