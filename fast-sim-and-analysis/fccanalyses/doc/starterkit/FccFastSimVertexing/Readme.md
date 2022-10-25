@@ -410,6 +410,16 @@ This needs to be added to your `myAnalysis/src/myAnalysis.cc` :
  }
 ```
 
+In case you have skipped the exercise above, that reconstructs the primary vertex and primary tracks: your `myAnalysis/include/myAnalysis.h` should also contain the following lines :
+```cpp
+...
+#include "FCCAnalyses/VertexingUtils.h"
+using namespace FCCAnalyses;
+...
+```
+
+
+
 The local code needs to be recompiled:
 ```shell
 cd ${OUTPUT_DIR}/build
@@ -783,6 +793,28 @@ fccanalysis run examples/FCCee/tutorials/vertexing/analysis_Tau3Mu_stage1.py --t
 The files `analysis_Tau3Mu_stage1.py`, `myAnalysis.h` and `myAnalysis.cc` with all the changes discussed above can be found in the `examples/FCCee/tutorials/vertexing/Exercises/` directory of FCCAnalyses.
 
 5. We now have a simple analyser that can be used to process the signal and background samples, and plot the mass of the $\tau \rightarrow 3\mu$ candidates. For that we need to process the full statistics.
+
+
+In case you have skipped some of the steps above, you can still run this last part in stand-alone, by copying the files that are in `examples/FCCee/tutorials/vertexing/Exercises/`. 
+:::{admonition} To-do if you have skipped the steps above:
+:class: toggle
+
+First copy the files :
+```shell
+cp examples/FCCee/tutorials/vertexing/Exercises/myAnalysis.h myAnalysis/include/.
+cp examples/FCCee/tutorials/vertexing/Exercises/myAnalysis.cc myAnalysis/src/.
+cp examples/FCCee/tutorials/vertexing/Exercises/analysis_Tau3Mu_stage1.py examples/FCCee/tutorials/vertexing/analysis_Tau3Mu_stage1.py
+```
+
+and compile your local code:
+```shell
+cd ${OUTPUT_DIR}/build
+cmake .. && make && make install
+cd ${LOCAL_DIR}
+```
+
+:::
+
 
 All samples that have been centrally produced can be found [on this web page](http://fcc-physics-events.web.cern.ch/fcc-physics-events/FCCee/index.php). We use `spring2021` samples (in `Production tags`), and the files made with `IDEA`. If you enter `TauMinus2MuMuMu` and `TauMinus2PiPiPinus` in the search field, you will see the datasets produced for the signal anf the $\tau \rightarrow 3\pi \nu$ background. The first column shows the dataset names, in this case `p8_noBES_ee_Ztautau_ecm91_EvtGen_TauMinus2MuMuMu` and `p8_noBES_ee_Ztautau_ecm91_EvtGen_TauMinus2PiPiPinu`. 
 
